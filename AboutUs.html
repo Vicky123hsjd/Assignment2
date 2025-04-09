@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - 中国刺绣艺术</title>
+    <script>
+        function checkScreenSize() {
+            // 获取当前页面路径
+            const currentPath = window.location.pathname;
+            // 获取文件名
+            const fileName = currentPath.split('/').pop();
+            console.log(fileName);
+            
+            
+            // 检测是否在移动端目录
+            const isMobilePath = currentPath.includes('/mobile/');
+            
+            // 获取当前屏幕宽度
+            const screenWidth = window.innerWidth;
+            
+            // 如果是在移动端页面且屏幕宽度大于768px，跳转到桌面端
+            if (isMobilePath && screenWidth > 768) {
+                window.location.href = '../' + fileName;
+                return;
+            }
+            
+            // 如果是在桌面端页面且屏幕宽度小于等于768px，跳转到移动端
+            if (!isMobilePath && screenWidth <= 768) {
+                window.location.href = './mobile/' + fileName;
+                return;
+            }
+        }
+
+        // 页面加载时检查
+        window.addEventListener('load', checkScreenSize);
+        // 窗口大小改变时检查
+        window.addEventListener('resize', checkScreenSize);
+    </script>
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* 导航栏样式 */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            background-color: #fff;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #c62828;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #8e0000;
+        }
+        
+        nav ul li a.active {
+            color: #8e0000;
+            font-weight: bold;
+        }
+        
+        /* 主标题样式 */
+        .main-title {
+            text-align: center;
+            padding: 50px 0 20px;
+        }
+        
+        .main-title h1 {
+            color: #c62828;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        /* 内容部分样式 */
+        .content-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .purpose-text {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        /* 图片展示区域 */
+        .embroidery-showcase {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .embroidery-image {
+            flex: 1;
+            min-width: 300px;
+            max-width: 48%;
+        }
+        
+        .embroidery-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 5px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .main-title h1 {
+                font-size: 2.5rem;
+            }
+            
+            .embroidery-showcase {
+                flex-direction: column;
+            }
+            
+            .embroidery-image {
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .main-title h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Discover.html">Discover</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="Events.html">Events</a></li>
+            <li><a href="AboutUs.html" class="active">About us</a></li>
+        </ul>
+    </nav>
+    
+    <!-- 主标题 -->
+    <section class="main-title">
+        <h1>Purpose</h1>
+    </section>
+    
+    <!-- 内容部分 -->
+    <section class="content-section">
+        <div class="purpose-text">
+            <p>This website is dedicated to promoting Chinese embroidery culture and showcasing the exquisite craftsmanship and artistic charm of the millennium heritage. We bring together the four famous embroidery styles (Suzhou embroidery, Hunan embroidery, Guangdong embroidery, and Sichuan embroidery), and provide a wealth of historical introductions, fine product appreciation, and modern application cases.</p>
+            <br>
+            <p>Whether you are a handicraft enthusiast, designer, or cultural researcher, you can gain a deeper understanding of the unique charm of embroidery here and jointly promote the inheritance and innovation of this intangible cultural heritage.</p>
+        </div>
+        
+        <!-- 图片展示区域 -->
+        <div class="embroidery-showcase">
+            <div class="embroidery-image">
+                <img  style="width: 524px;height: 392px;" src="images/wb purpose image 1.png" alt="Suzhou embroidery artwork showing waves and mountains in gold and blue">
+            </div>
+            <div class="embroidery-image">
+                <img style="width: 514px;height: 384px;" src="images/wb purpose image 2.png" alt="Traditional Chinese landscape embroidery showing a rural scene with a person by a stream">
+            </div>
+        </div>
+    </section>
+</body>
+</html>

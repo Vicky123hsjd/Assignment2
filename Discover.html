@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover - Chinese Embroidery</title>
+    <script>
+        function checkScreenSize() {
+
+            // 获取当前页面路径
+            const currentPath = window.location.pathname;
+            // 获取文件名
+            const fileName = currentPath.split('/').pop();
+            
+            // 检测是否在移动端目录
+            const isMobilePath = currentPath.includes('/mobile/');
+            
+            // 获取当前屏幕宽度
+            const screenWidth = window.innerWidth;
+            console.log(screenWidth);
+
+            // 如果是在移动端页面且屏幕宽度大于768px，跳转到桌面端
+            if (isMobilePath && screenWidth > 768) {
+                window.location.href = '../' + fileName;
+                return;
+            }
+
+            // 如果是在桌面端页面且屏幕宽度小于等于768px，跳转到移动端
+            if (!isMobilePath && screenWidth <= 768) {
+                window.location.href = './mobile/' + fileName;
+                return;
+            }
+        }
+
+        // 页面加载时检查
+        window.addEventListener('load', checkScreenSize);
+        // 窗口大小改变时检查
+        window.addEventListener('resize', checkScreenSize);
+    </script>
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 1440px;
+        }
+
+        .html {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* 导航栏样式 */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            background-color: #fff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #c62828;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #8e0000;
+        }
+
+        nav ul li a.active {
+            color: #8e0000;
+            font-weight: bold;
+        }
+
+        /* 主标题样式 */
+        .main-title {
+            text-align: center;
+            padding: 50px 0 20px;
+        }
+
+        .main-title h1 {
+            color: #c62828;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .main-title p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        /* 内容部分样式 */
+        .content-section {
+
+            min-width: 1440px;
+            margin: 50px auto;
+            padding: 0 20px;
+
+        }
+
+        .content-section-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 140px;
+            margin-top: 40px;
+            margin-left: 108px;
+            margin-right: 108px;
+            position: relative;
+
+            img {
+                width: 464.6399841308594px;
+                height: 440px;
+                top: 502px;
+                left: 806px;
+
+            }
+        }
+
+        .section-title {
+            width: 505px;
+            height: 336px;
+            top: 533px;
+            left: 210px;
+
+
+        }
+
+        .history-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 140px;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .history-item {
+            width: 398px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            margin-bottom: 60px;
+
+        }
+
+        .Arrow {
+            position: absolute;
+            left: 49%;
+            height: 100%;
+
+            img {
+                height: 100%;
+            }
+        }
+
+        .Arrow2 {
+            position: absolute;
+            width: 100%;
+            top: 645px;
+
+            img {
+                width: 100%;
+            }
+
+            /* transform: rotate(90deg); */
+        }
+
+        .history-item h2 {
+            color: #c62828;
+            font-size: 1.5rem;
+
+            text-align: center;
+        }
+
+        .history-content {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .text-content {
+            flex: 1;
+        }
+
+        .image-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .history-item:nth-child(odd) .history-content {
+            flex-direction: row;
+        }
+
+        .history-item:nth-child(even) .history-content {
+            flex-direction: row-reverse;
+        }
+
+        .history-item p {
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .embroidery-image {
+            width: 100%;
+            max-width: 350px;
+            display: block;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .history-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-title h1 {
+                font-size: 2.5rem;
+            }
+
+            .history-content {
+                flex-direction: column !important;
+                gap: 20px;
+            }
+
+            .text-content,
+            .image-content {
+                width: 100%;
+            }
+
+            .embroidery-image {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .main-title h1 {
+                font-size: 2rem;
+            }
+
+            .history-item h2 {
+                font-size: 1.3rem;
+            }
+
+            .embroidery-image {
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Discover.html" class="active">Discover</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="Events.html">Events</a></li>
+            <li><a href="AboutUs.html">About us</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主标题 -->
+    <section class="main-title">
+        <h1>Explore Chinese Embroidery</h1>
+        <p>Dive into articles about the history, techniques, and cultural significance of Chinese embroidery</p>
+    </section>
+
+    <!-- 内容部分 -->
+    <section class="content-section">
+        <div class="content-section-content">
+
+            <div class="section-title">Chinese embroidery has a long history, with its origins dating back to the
+                Neolithic Age thousands of years ago. It had already taken shape in the Shang and Zhou dynasties, and
+                became widely popular in the Han Dynasty due to the opening of the Silk Road. During the Tang and Song
+                dynasties, embroidery technology reached its peak, with rich colors and exquisite techniques, and
+                gradually formed two major systems: court and folk. During the Ming and Qing dynasties, the four famous
+                embroidery styles of Suzhou embroidery, Hunan embroidery, Guangdong embroidery, and Sichuan embroidery
+                each had their own characteristics and were widely used in clothing, decoration, and artworks. Since
+                modern times, embroidery has not only been used in traditional clothing, but has also been integrated
+                into fashion design, cultural and creative products, and has become an important part of China's
+                intangible cultural heritage, showing its unique artistic charm and cultural value.</div>
+            <img src="images/新图网_简洁中国风刺绣工艺_ixintu.com.png" alt="">
+        </div>
+        <div class="history-grid">
+            <div class="Arrow">
+                <img src="images/Arrow 2.png" alt="">
+            </div>
+            <div class="Arrow2">
+                <img src="images/Arrow 1@2x.png" alt="">
+            </div>
+            <!-- 第一部分：起源和早期发展 -->
+            <div class="history-item">
+
+                <h2>Origin and Early Development<br>(Neolithic Era-Han Dynasty)</h2>
+                <div class="history-content">
+                    <div class="text-content">
+                        <p>Chinese embroidery has a long history, with its origins dating back to the Neolithic Age
+                            thousands of years ago. It had already taken shape in the Shang and Zhou dynasties, and
+                            became widely popular in the Han Dynasty due to the opening of the Silk Road. During the
+                            Tang and Song dynasties, Chinese embroidery reached a new height, with more exquisite
+                            techniques, and gradually formed its major historic, court and folk. During the Ming and
+                            Qing dynasties, the four famous embroidery styles of Suzhou embroidery, Hunan embroidery,
+                            Guangdong embroidery, and Sichuan embroidery each had their own characteristics and were
+                            widely used in clothing and decorations. Chinese embroidery has not only been used in
+                            traditional clothing, but has also been integrated into fashion design, cultural and
+                            creative products, and has become an important part of China's intangible cultural heritage,
+                            showing its unique artistic charm and cultural value.</p>
+                    </div>
+                    <!-- <div class="image-content">
+                        <img src="imgs/2.png" alt="Chinese embroidery artwork" class="embroidery-image">
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- 第二部分：发展与繁荣 -->
+            <div class="history-item">
+                <h2>Development and prosperity (Wei, Jin, Southern and Northern Dynasties - Tang and Song Dynasties)
+                </h2>
+                <div class="history-content">
+                    <div class="text-content">
+                        <p>During the Wei, Jin, Southern and Northern Dynasties, embroidery was more widespread, and
+                            embroidery was widely used for decorative objects like Buddha statues and prayer flags.
+                            Patterns inspired styles emerged. The Tang Dynasty marked a golden age for embroidery, with
+                            dedicated court workshops producing exquisite royal garments and decorations, symbolizing
+                            styles during Tang exemplified by the "Embroidered Guanyin Statue". In the Song Dynasty,
+                            Embroidery became more refined and realistic, developing the "painting embroidery" style,
+                            which mimicked ink paintings, as seen in works like "Five Hundred Arhats Statue". Folk
+                            embroidery also thrived during this time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第三部分：明清时期的辉煌 -->
+            <div class="history-item">
+                <h2>The glory of the Ming and Qing Dynasties<br>(1368-1912)</h2>
+                <div class="history-content">
+                    <div class="text-content">
+                        <p>During the Ming Dynasty, embroidery was widely used in clothing, furniture, and religious
+                            items, with craftsmanship further refined. Regional styles like Suzhou, Guangdong, and Hunan
+                            embroidery began to take shape. The Qing Dynasty saw court embroidery reach its peak, with
+                            intricate techniques like the gold embroidery and "gua gold embroidery" used in dragon
+                            robes, phoenix robes, and wall hangings. During this period, the four famous embroidery
+                            styles—Suzhou, Guangdong, Hunan, and Sichuan—were formally established, each developing its
+                            own artistic identity.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 第四部分：现代与当代发展 -->
+            <div class="history-item">
+                <h2>Modern and contemporary development<br>(1912 to present)</h2>
+                <div class="history-content">
+
+                    <div class="text-content">
+                        <p>During the Republic of China period, embroidery became more commercialized and integrated
+                            Western elements and craftsmanship, leading to new styles in clothing and decoration. After
+                            1949, there was greater emphasis on the preservation and innovation of embroidery, with
+                            Suzhou embroidery achieving lifelike precision and Hunan embroidery incorporating modern
+                            painting techniques. In the 21st century, embroidery is widely used in fashion, home decor,
+                            and artworks, while contemporary cultural creative efforts are revitalizing traditional hand
+                            embroidery, giving it new life.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国刺绣文化 - 我的</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<script>
+    function checkScreenSize() {
+        // 获取当前页面路径
+        const currentPath = window.location.pathname;
+        // 获取文件名
+        const fileName = currentPath.split('/').pop();
+        
+        // 检测是否在移动端目录
+        const isMobilePath = currentPath.includes('/mobile/');
+        
+        // 获取当前屏幕宽度
+        const screenWidth = window.innerWidth;
+        
+        // 如果是在移动端页面且屏幕宽度大于768px，跳转到桌面端
+        if (isMobilePath && screenWidth > 768) {
+            window.location.href = '../' + fileName;
+            return;
+        }
+        
+        // 如果是在桌面端页面且屏幕宽度小于等于768px，跳转到移动端
+        if (!isMobilePath && screenWidth <= 768) {
+            window.location.href = './mobile/' + fileName;
+            return;
+        }
+    }
+
+    // 页面加载时检查
+    window.addEventListener('load', checkScreenSize);
+    // 窗口大小改变时检查
+    window.addEventListener('resize', checkScreenSize);
+</script>
+<body>
+    <div id="app">
+        <!-- 个人页面 -->
+        <div class="page">
+            <div class="welcome-container">
+                <div class="welcome-box">Welcome！！</div>
+                <div class="red-circle"></div>
+            </div>
+            
+            <h1 class="purpose-title">Purpose</h1>
+            
+            <p class="purpose-text">
+                This website is dedicated to promoting Chinese embroidery culture and showcasing the exquisite craftsmanship and artistic charm of the millennium heritage. We bring together the four famous embroidery styles (Suzhou embroidery, Hunan embroidery, Guangdong embroidery, and Sichuan embroidery), and provide a wealth of historical introductions, fine product appreciation, and modern application cases. Whether you are a handicraft enthusiast, designer, or cultural researcher, you can gain a deeper understanding of the unique charm of embroidery here and jointly promote the inheritance and innovation of this intangible cultural heritage.
+            </p>
+            
+            <div class="action-buttons">
+                <button class="action-btn like-btn">Like</button>
+                <button class="action-btn collect-btn">Collect</button>
+            </div>
+            
+            <div class="action-images">
+                <div class="action-image">
+                    <img src="../images/wb purpose image 1.png" alt="刺绣作品1" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="action-image">
+                    <img src="../images/wb purpose image 2.png" alt="刺绣作品2" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+        
+        <!-- 导航栏 -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="Discover.html" class="nav-item">Discover</a>
+            <a href="Gallery.html" class="nav-item">Gallery</a>
+            <a href="Events.html" class="nav-item">Events</a>
+            <a href="AboutUs.html" class="nav-item active">Mine</a>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

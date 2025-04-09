@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国刺绣文化 - 首页</title>
+    <script>
+        function checkScreenSize() {
+            // 获取当前页面路径
+            const currentPath = window.location.pathname;
+            // 获取文件名
+            const fileName = currentPath.split('/').pop();
+            
+            // 检测是否在移动端目录
+            const isMobilePath = currentPath.includes('/mobile/');
+            
+            // 获取当前屏幕宽度
+            const screenWidth = window.innerWidth;
+            
+            // 如果是在移动端页面且屏幕宽度大于768px，跳转到桌面端
+            if (isMobilePath && screenWidth > 768) {
+                window.location.href = '../' + fileName;
+                return;
+            }
+            
+            // 如果是在桌面端页面且屏幕宽度小于等于768px，跳转到移动端
+            if (!isMobilePath && screenWidth <= 768) {
+                window.location.href = './mobile/' + fileName;
+                return;
+            }
+        }
+
+        // 页面加载时检查
+        window.addEventListener('load', checkScreenSize);
+        // 窗口大小改变时检查
+        window.addEventListener('resize', checkScreenSize);
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 主页内容 -->
+        <div class="page">
+            <header class="home-header">
+                <div class="greeting">Hello，xxx</div>
+                <div class="search-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+            </header>
+            <div class="search-bar">
+                <div class="search-input"></div>
+            </div>
+            
+            <div class="banner">
+                <h1>THE BEAUTY OF<br>CHINESE EMBROIDERY</h1>
+                <!-- <div class="banner-images">
+                    <div class="banner-image left">
+                        <img src="../images/Mask group 1.png" alt="刺绣图案">
+                    </div>
+                    <div class="banner-image right">
+                        <img src="../images/embroidery-2937593_1280.jpg" alt="刺绣图案">
+                    </div>
+                </div> -->
+            </div>
+            
+            <div class="history-section">
+                <h2>THE HISTORY</h2>
+                <p>Discover the rich cultural heritage behind Chinese embroidery.</p>
+                <a href="Discover.html" class="read-more-btn">Read More</a>
+            </div>
+            
+            <div class="circle-images">
+                <div class="circle-image">
+                    <img src="../images/thread-841605_1280.jpg" alt="刺绣线">
+                </div>
+                <div class="circle-image">
+                    <img src="../images/thread-5248183_1280.jpg" alt="Red floral embroidery">
+                </div>
+                <div class="circle-image">
+                    <img src="../images/thread-841605_1280.jpg" alt="Embroidery threads">
+
+                </div>
+                <div class="circle-image">
+                    <img src="../images/images-1.jpeg" alt="Embroidery artwork">
+
+                </div>
+            </div>
+            
+            <div class="recommendations">
+                <h2>Recommendations</h2>
+                <div class="recommendation-items">
+                    <div class="recommendation-item">
+                        <img src="../images/Unknown-1.jpeg" alt="鸟与花刺绣">
+                    </div>
+                    <div class="recommendation-item">
+                        <img src="../images/305da7dd85354753b7162c8260759a81.jpeg" alt="花卉刺绣">
+                    </div>
+                    <div class="recommendation-item">
+                        <img src="../images/053.jpg!list1x.v2.jpeg" alt="猫咪刺绣">
+                    </div>
+                    <div class="recommendation-item">
+                        <img src="../images/121101.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 导航栏 -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item active">Home</a>
+            <a href="Discover.html" class="nav-item">Discover</a>
+            <a href="Gallery.html" class="nav-item">Gallery</a>
+            <a href="Events.html" class="nav-item">Events</a>
+            <a href="AboutUs.html" class="nav-item">Mine</a>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

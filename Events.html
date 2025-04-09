@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - 中国刺绣艺术</title>
+    <script>
+        function checkScreenSize() {
+            // 获取当前页面路径
+            const currentPath = window.location.pathname;
+            // 获取文件名
+            const fileName = currentPath.split('/').pop();
+            
+            // 检测是否在移动端目录
+            const isMobilePath = currentPath.includes('/mobile/');
+            
+            // 获取当前屏幕宽度
+            const screenWidth = window.innerWidth;
+            
+            // 如果是在移动端页面且屏幕宽度大于768px，跳转到桌面端
+            if (isMobilePath && screenWidth > 768) {
+                window.location.href = '../' + fileName;
+                return;
+            }
+            
+            // 如果是在桌面端页面且屏幕宽度小于等于768px，跳转到移动端
+            if (!isMobilePath && screenWidth <= 768) {
+                window.location.href = './mobile/' + fileName;
+                return;
+            }
+        }
+
+        // 页面加载时检查
+        window.addEventListener('load', checkScreenSize);
+        // 窗口大小改变时检查
+        window.addEventListener('resize', checkScreenSize);
+    </script>
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* 导航栏样式 */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            background-color: #fff;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #c62828;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #8e0000;
+        }
+        
+        nav ul li a.active {
+            color: #8e0000;
+            font-weight: bold;
+        }
+        
+        /* 主标题样式 */
+        .main-title {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 20px;
+        }
+        
+        .main-title h1 {
+            color: #c62828;
+            font-size: 3rem;
+        }
+        
+        /* 事件内容样式 */
+        .events-container {
+            max-width: 1200px;
+            display: flex;
+            flex-direction: row;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .event {
+            display: flex;
+            margin-bottom: 80px;
+            gap: 20px;
+            position: relative;
+            flex-direction: column;
+        }
+        .event2{
+            margin-top: 300px;
+        }
+        .event3{
+            margin-top: 200px;
+        }
+        
+        
+      
+        
+        .event-image {
+            flex: 0 0 40%;
+            position: relative;
+        }
+        
+        .event-image img {
+           width: 355px;
+            height: 355px;
+            display: block;
+        }
+        .event-image.circle {
+            margin: 0 auto;
+}
+        .event-image.circle img {
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .event-content {
+            flex: 0 0 60%;
+            padding: 0 30px;
+        }
+        
+        .event-title {
+            color: #c62828;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .event-description {
+            text-align: justify;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .icon-image-c{
+            margin: 0 auto;
+        }
+        .icon-image {
+            margin: 0 auto;
+            width: 60px;
+            height: 60px;
+        }
+        
+        .icon-top-right {
+            top: 20px;
+            right: 20%;
+        }
+        
+        .icon-top-left {
+            top: 20px;
+            left: 20%;
+        }
+        
+        .icon-middle-right {
+            top: 50%;
+            right: 10%;
+        }
+        
+        .traditional-robe {
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .event {
+                flex-direction: column;
+            }
+            
+            .event-content {
+                padding: 20px 0;
+            }
+            
+            .event-image.circle img {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+            }
+            
+            .icon-image {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .main-title h1 {
+                font-size: 2rem;
+            }
+            
+            .event-image.circle img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Discover.html">Discover</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="Events.html" class="active">Events</a></li>
+            <li><a href="AboutUs.html">About us</a></li>
+        </ul>
+    </nav>
+    
+    <!-- 主标题 -->
+    <section class="main-title">
+        <h1>Events</h1>
+    </section>
+    
+    <!-- 事件内容 -->
+    <div class="events-container">
+        <!-- 事件1 -->
+        <div class="event event-left  event1">
+           <div class="icon-image-c"> <img src="images/frame@2x-2.png" alt="Embroidery Icon" class="icon-image"></div>
+            <div class="event-content">
+                <h2 class="event-title">Silk Mona Lisa* - A Suzhou Embroidery Masterpiece</h2>
+                <p class="event-description">
+                    In 2006, Chinese embroidery artist and Suzhou Master Xue Jindi ingeniously created a stunning embroidered replica of Leonardo da Vinci's "Mona Lisa". Using ultra-fine silk thread and traditional "double-sided embroidery", she recreated the intricate details of the famous painting, making the stitches almost invisible. The work amazed art experts around the world and proved that Chinese embroidery can rival fine paintings in realism. The "Silk Mona Lisa" has been exhibited internationally, receiving acclaim for its extraordinary artistic value, detail, and craftsmanship.
+                </p>
+            </div>
+            <div class="event-image circle">
+                <img src="images/Mask group@2x-1.png" alt="Silk Mona Lisa Embroidery">
+            </div>
+           
+          
+        </div>
+        
+        <!-- 事件2 -->
+        <div class="event event-right event2">
+           <div class="icon-image-c"> <img src="images/frame@2x-1.png" alt="Embroidery Icon" class="icon-image"></div>
+
+          
+            <div class="event-content">
+                <h2 class="event-title">Haute couture meets Chinese embroidery – Guo Pei's global fashion influence</h2>
+                <p class="event-description">
+                    Famous Chinese fashion designer "Guo Pei" brought Chinese embroidery to the global stage when singer Rihanna wore a magnificent yellow cape to the 2015 Met Gala. Embroidered with gold thread and intricate patterns, the gown took more than 50,000 hours to complete and showcased the exquisite craftsmanship of traditional Chinese embroidery. This event marked a worldwide fascination with Chinese embroidery, proving its importance in modern haute couture.
+                </p>
+            </div>  <div class="event-image">
+                <img src="images/Mask group@2x-2.png" alt="Fashion Show with Chinese Embroidery">
+            </div>
+           
+        </div>
+        
+        <!-- 事件3 -->
+        <div class="event event-left event3">
+            <div class="icon-image-c"> <img src="images/frame@2x.png" alt="Embroidery Icon" class="icon-image"></div>
+          
+            <div class="event-content">
+                <h2 class="event-title">The Revival of the Dragon Robe</h2>
+                <p class="event-description">
+                    In 2018, the Palace Museum in Beijing launched a project to restore and reproduce the stunning robes of the Qing Dynasty using ancient embroidery techniques. Many of the original dragon robes worn by the emperors had faded over time. Experts and embroidery masters spent years studying and meticulously recreating these using gold thread and silk techniques. The revival of these lost techniques inspires the younger generation to appreciate and pass on this beautiful craft.
+                </p>
+            </div>
+            <div class="event-image">
+                <img src="images/Mask group@2x.png" alt="Book Icon" class="icon-image icon-top-left">
+               
+            </div>
+        </div>
+        
+       
+    </div>
+</body>
+</html>

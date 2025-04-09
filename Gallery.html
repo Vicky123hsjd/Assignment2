@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - 中国刺绣艺术</title>
+    <script>
+        function checkScreenSize() {
+            // 获取当前页面路径
+            const currentPath = window.location.pathname;
+            // 获取文件名
+            const fileName = currentPath.split('/').pop();
+            
+            // 检测是否在移动端目录
+            const isMobilePath = currentPath.includes('/mobile/');
+            
+            // 获取当前屏幕宽度
+            const screenWidth = window.innerWidth;
+            
+            // 如果是在移动端页面且屏幕宽度大于768px，跳转到桌面端
+            if (isMobilePath && screenWidth > 768) {
+                window.location.href = '../' + fileName;
+                return;
+            }
+            
+            // 如果是在桌面端页面且屏幕宽度小于等于768px，跳转到移动端
+            if (!isMobilePath && screenWidth <= 768) {
+                window.location.href = './mobile/' + fileName;
+                return;
+            }
+        }
+
+        // 页面加载时检查
+        window.addEventListener('load', checkScreenSize);
+        // 窗口大小改变时检查
+        window.addEventListener('resize', checkScreenSize);
+    </script>
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* 导航栏样式 */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            background-color: #fff;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #c62828;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #8e0000;
+        }
+        
+        nav ul li a.active {
+            color: #8e0000;
+            font-weight: bold;
+        }
+        
+        /* 主标题样式 */
+        .main-title {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 20px;
+        }
+        
+        .main-title h1 {
+            color: #c62828;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        /* 内容部分样式 */
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+        
+        /* 刺绣展示区域 */
+        .embroidery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .embroidery-item {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .embroidery-item.text{
+            text-align: center;
+            display: block;
+           
+        }
+        
+        
+        .embroidery-item img {
+            width: 100%;
+            height: auto;
+            max-width: 250px;
+            margin-bottom: 15px;
+            display: block;
+            margin: 0 auto 15px;
+
+        }
+        
+        .embroidery-item h3 {
+            color: #c62828;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .embroidery-item p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* 大图展示区域 */
+        .large-image-showcase {
+            margin-top: 60px;
+        }
+        
+        .large-image-showcase img {
+            width: 100%;
+            height: 296px;
+            margin-bottom: 30px;
+            display: block;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .embroidery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul li {
+                margin: 0 15px;
+            }
+            
+            .embroidery-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 30px auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .main-title h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Discover.html">Discover</a></li>
+            <li><a href="Gallery.html" class="active">Gallery</a></li>
+            <li><a href="Events.html">Events</a></li>
+            <li><a href="AboutUs.html">About us</a></li>
+        </ul>
+    </nav>
+    
+    <!-- 主标题 -->
+    <div class="main-title">
+        <h1>Four famous Chinese embroidery</h1>
+    </div>
+    
+    <!-- 刺绣展示区域 -->
+    <section class="content-section">
+        <div class="embroidery-grid">
+            <!-- 苏绣 -->
+            <div class="embroidery-item">
+                <img src="images/20171020164536_1255.jpg_280.jpg" alt="Suzhou Embroidery">
+               
+            </div>
+            
+            <!-- 湘绣 -->
+            <div class="embroidery-item">
+                <img src="images/a71ea8d3fd1f413478e789ef291f95cad0c85e4b.webp" alt="Hunan Embroidery">
+               
+            </div>
+            
+            <!-- 粤绣 -->
+            <div class="embroidery-item">
+                <img src="images/121101.jpg" alt="Yue Embroidery">
+               
+            </div>
+            
+            <!-- 蜀绣 -->
+            <div class="embroidery-item">
+                <img src="images/0b86b64be589435b5da4e8943ec68f3d.jpg" alt="Shu Embroidery">
+               
+            </div>
+        </div>
+        <div class="embroidery-grid">
+            <!-- 苏绣 -->
+            <div class="embroidery-item text">
+                <h3>1. Suzhou embroidery</h3>
+                <p>(Jiangsu) - delicate and exquisite, soft colors, superb craftsmanship, famous for double-sided embroidery.</p>
+            </div>
+            
+            <!-- 湘绣 -->
+            <div class="embroidery-item text">
+                <h3>2. Hunan embroidery</h3>
+                <p>(Hunan) - focuses on three-dimensionality and layering, and is good at animal embroidery, such as tigers and lions.</p>
+            </div>
+            
+            <!-- 粤绣 -->
+            <div class="embroidery-item text">
+                <h3>3. Yue embroidery</h3>
+                <p>(Guangdong) - bright colors, magnificent style, often used in costumes, home decorations, etc.</p>
+            </div>
+            
+            <!-- 蜀绣 -->
+            <div class="embroidery-item text">
+                <h3>4. Shu embroidery</h3>
+                <p>(Sichuan) - with various stitches and bright colors, it is often used for quilt covers, curtains, etc.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 大图展示区域 -->
+    <section class="content-section large-image-showcase">
+        <img src="images/gallery 1.png" alt="Chinese Embroidery Showcase - Koi Fish">
+        <img src="images/gallery 2.png" alt="Chinese Embroidery Showcase - Goldfish">
+    </section>
+</body>
+</html>

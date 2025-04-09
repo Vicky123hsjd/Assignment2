@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国刺绣文化 - 活动</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<script>
+    function checkScreenSize() {
+        // 获取当前页面路径
+        const currentPath = window.location.pathname;
+        // 获取文件名
+        const fileName = currentPath.split('/').pop();
+        
+        // 检测是否在移动端目录
+        const isMobilePath = currentPath.includes('/mobile/');
+        
+        // 获取当前屏幕宽度
+        const screenWidth = window.innerWidth;
+        
+        // 如果是在移动端页面且屏幕宽度大于768px，跳转到桌面端
+        if (isMobilePath && screenWidth > 768) {
+            window.location.href = '../' + fileName;
+            return;
+        }
+        
+        // 如果是在桌面端页面且屏幕宽度小于等于768px，跳转到移动端
+        if (!isMobilePath && screenWidth <= 768) {
+            window.location.href = './mobile/' + fileName;
+            return;
+        }
+    }
+
+    // 页面加载时检查
+    window.addEventListener('load', checkScreenSize);
+    // 窗口大小改变时检查
+    window.addEventListener('resize', checkScreenSize);
+</script>
+<body>
+    <div id="app">
+        <!-- 活动页面 -->
+        <div class="page">
+            <div class="events-circle">
+                <h1>Events</h1>
+            </div>
+            
+            <div class="event-item">
+                <p class="event-text">
+                    In 2006, Chinese embroidery artist and Suzhou Embroidery Master Yao Jianping created a stunning embroidered replica of Leonardo da Vinci's "Mona Lisa". Using ultra-fine silk thread and traditional double-sided embroidery, she recreated the masterpiece with incredible precision, making the stitches almost invisible. The work wowed art experts around the world and proved that Chinese embroidery can rival fine paintings in realism. The "Silk Mona Lisa" has been exhibited internationally, elevating Suzhou Embroidery to new artistic heights.
+                </p>
+                <div class="event-image">
+                    <img src="../images/Mask group@2x-1.png" alt="蒙娜丽莎刺绣" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+                </div>
+            </div>
+            
+            <h2 class="event-title">The Revival of the Dragon Robe</h2>
+            
+            <div class="event-item">
+                <p class="event-text">
+                    In 2016, the Palace Museum in Beijing launched a project to restore and reproduce the dragon robes of the Qing Dynasty using ancient embroidery techniques. Many of the original dragon robes worn by the emperors had faded over time. Experts and embroidery masters spent years studying and meticulously recreating them, using "gold thread embroidery" and traditional silk techniques. The revival of these lost techniques inspires the younger generation to appreciate and pass on this historical craft.
+                </p>
+                <div class="event-image">
+                    <img src="../images/Mask group@2x-2.png" alt="龙袍" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+                </div>
+            </div>
+            
+            <h2 class="event-title">Haute couture meets Chinese embroidery - Guo Pei's global fashion influence</h2>
+            
+            <div class="event-item">
+                <p class="event-text">
+                    Famous Chinese fashion designer "Guo Pei" brought Chinese embroidery to the global stage when singer Rihanna wore a luxurious golden cape dress at the 2015 Met Gala. Embroidered with gold thread and intricate patterns, the gown took more than 50,000 hours to complete and showcased the exquisite craftsmanship of traditional Cantonese embroidery. The event sparked a worldwide fascination with Chinese embroidery, proving its importance in modern haute couture.
+                </p>
+                <div class="event-image">
+                    <img src="../images/Mask group@2x.png" alt="郭培设计" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+        
+        <!-- 导航栏 -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="Discover.html" class="nav-item">Discover</a>
+            <a href="Gallery.html" class="nav-item">Gallery</a>
+            <a href="Events.html" class="nav-item active">Events</a>
+            <a href="AboutUs.html" class="nav-item">Mine</a>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
